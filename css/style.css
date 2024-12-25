@@ -1,0 +1,63 @@
+body{
+    background-color: #212529;
+}
+
+header img{ 
+    object-fit: cover;
+}
+
+.navbar-brand
+{
+    margin-left: 20px;
+}
+
+.nav-link{
+    color: white;
+    font-family: 'cursive';
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.logo-name
+{
+    font-family: 'cursive';
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.navbar{
+    background-color:#3a497b !important;
+    width: 80%;
+    margin:auto;
+    height: 55px;
+    box-shadow: black 0px 0px 10px;
+}
+
+#logo-img
+{
+    width: 50px;
+    height: 50px;
+}
+
+.card:hover
+{
+    transform: scale(1.05);
+}
+
+.card
+{
+    transition: transform 0.3s;
+    border: black 0.2px solid;
+}
+
+.navbar-brand 
+{
+    --bs-nav-link-hover-color:#0197ca;
+}
+
+.navbar-nav .nav-link.active,.nav-link:hover
+
+{
+    color: #0197ca !important;
+}
+
