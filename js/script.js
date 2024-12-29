@@ -117,15 +117,15 @@ function displayData(gamesArray) {
                     <div class="row">
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
-                                <div class="col-md-8">
-                                    <h4><b>${element.title}</b></h4> 
+                                <div class="col-md-10">
+                                    <h4 style="font-size:15px;"><b>${element.title}</b></h4> 
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-2">
                                     <span class="badge text-bg-secondary p-2" style="background-color:#3a497b !important;">Free</span>
                                 </div>
                             </div>
 
-                            <p>${element.short_description}</p> 
+                            <p class="text-center">A,free-to-play,cross-platform,sandbox,MMO,developed,and,published</p> 
                             <hr style="border-top: 1px solid #000;">
                             <div class="d-flex justify-content-around">
                                 <div>
