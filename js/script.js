@@ -127,12 +127,12 @@ function displayData(gamesArray) {
 
                             <p>${element.short_description}</p> 
                             <hr style="border-top: 1px solid #000;">
-                            <div class="d-flex justify-content-between">
+                            <div class="d-flex justify-content-around">
                                 <div>
-                                    <span class="badge text-bg-secondary p-2"> ${element.genre}</span>            
+                                    <span class="badge text-bg-secondary p-2 genre"> ${element.genre}</span>            
                                 </div>
                                 <div>
-                                    <span class="badge text-bg-secondary p-2"> ${element.platform}</span>
+                                    <span class="badge text-bg-secondary p-2 platform"> ${element.platform}</span>
                                 </div>
                             </div>
                         </div>
