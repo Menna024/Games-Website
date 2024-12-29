@@ -1,63 +1,118 @@
-body{
+body {
     background-color: #212529;
 }
 
-header img{ 
+header img {
     object-fit: cover;
 }
 
-.navbar-brand
-{
+.navbar-brand {
     margin-left: 20px;
 }
 
-.nav-link{
+.nav-link {
     color: white;
     font-family: 'cursive';
     font-size: 12px;
     font-weight: 400;
 }
 
-.logo-name
-{
+.logo-name {
     font-family: 'cursive';
     font-size: 20px;
     font-weight: 500;
 }
 
-.navbar{
-    background-color:#3a497b !important;
+.navbar {
+    background-color: #3a497b !important;
     width: 80%;
-    margin:auto;
+    margin: auto;
     height: 55px;
     box-shadow: black 0px 0px 10px;
 }
 
-#logo-img
-{
+#logo-img {
     width: 50px;
     height: 50px;
 }
 
-.card:hover
-{
+.card:hover {
     transform: scale(1.05);
 }
 
-.card
-{
+.card {
     transition: transform 0.3s;
     border: black 0.2px solid;
 }
 
-.navbar-brand 
-{
-    --bs-nav-link-hover-color:#0197ca;
+.navbar-brand {
+    --bs-nav-link-hover-color: #0197ca;
 }
 
-.navbar-nav .nav-link.active,.nav-link:hover
-
-{
+.navbar-nav .nav-link.active,
+.nav-link:hover {
     color: #0197ca !important;
 }
 
+#spinner {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    border-radius: 50%;
+    position: absolute;
+    animation: rotate 1s linear infinite
+}
+
+#spinner::before,
+#spinner::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 5px solid #FFF;
+    animation: prixClipFix 2s linear infinite;
+}
+
+#spinner::after {
+    border-color: #FF3D00;
+    animation: prixClipFix 2s linear infinite, rotate 0.5s linear infinite reverse;
+    inset: 6px;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes prixClipFix {
+    0% {
+        clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+    }
+
+    25% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+    }
+
+    50% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+    }
+
+    75% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+    }
+
+    100% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+    }
+}

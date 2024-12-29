@@ -5,7 +5,7 @@
   <title>Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="css/details.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link
     href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Assistant:wght@200..800&family=Cedarville+Cursive&family=Comfortaa:wght@300..700&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Imperial+Script&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
@@ -13,49 +13,25 @@
 </head>
 
 <body>
-  <header>
-   <h2>Details Game</h2>
+  <header class="d-flex justify-content-between m-5 p-5">
+    <h2 class="text-white">Details Game</h2>
+    <button type="button" class="btn-close" aria-label="Close"></button>
   </header>
-  <nav class="navbar navbar-expand-lg rounded-4 sticky-top;">
-    <div class="container text-uppercase ">
-      <img src="images/logo-sm.png" id="logo-img" alt="logo" />
-      <a class="navbar-brand text-white logo-name" href="#">Game Reviews</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto ">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#" id="mmorpg">mmorpg</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" id="shooter">shooter</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" id="sailing">sailing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" id="permadeath">permadeath</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" id="superhero">superhero</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" id="pixel">pixel</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
   <main>
     <div class="container">
-      <div class="row" id="games"></div>
+      <div class="row" id="game">
+        <div class="col-md-4 image-section">
+
+        </div>
+        <div class="col-md-8 details-section">
+
+        </div>
+      </div>
     </div>
   </main>
   <script src="./js/bootstrap.bundle.min.js"></script>
-  <script src="./js/script.js"></script>
+  <script type="module" src="js/detailsJS.js"></script>
 </body>
 
 </html>

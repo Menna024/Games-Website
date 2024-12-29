@@ -1,6 +1,52 @@
+let CurrentCardID;
+var CurrentGenre = '';
+
+let CurrentCategory = localStorage.getItem("CurrentCategory");
+if (CurrentCategory == 'mmorpg') {
+    document.addEventListener('DOMContentLoaded', function () {
+        mmorpg.click();
+    });
+    getRequestByCategory("mmorpg");
+}
+else if (CurrentCategory == 'shooter') {
+    document.addEventListener('DOMContentLoaded', function () {
+        shooter.click();
+    });
+
+    getRequestByCategory("shooter");
+}
+else if (CurrentCategory == 'sailing') {
+    document.addEventListener('DOMContentLoaded', function () {
+        sailing.click();
+    });
+    getRequestByCategory("sailing");
+}
+else if (CurrentCategory == 'permadeath') {
+    document.addEventListener('DOMContentLoaded', function () {
+        permadeath.click();
+    });
+    getRequestByCategory("permadeath");
+}
+else if (CurrentCategory == 'superhero') {
+    document.addEventListener('DOMContentLoaded', function () {
+        superhero.click();
+    });
+    getRequestByCategory("superhero");
+}
+else if (CurrentCategory == 'pixel') {
+    document.addEventListener('DOMContentLoaded', function () {
+        pixel.click();
+    });
+    getRequestByCategory("pixel");
+}
+
 
 
 async function getRequestByCategory(CategoryName) {
+
+    let spinner = document.getElementById("spinner");
+    spinner.style.display = "flex";
+    
     const url = `https://free-to-play-games-database.p.rapidapi.com/api/games?category=${CategoryName}`;
     const options = {
         method: 'GET',
@@ -13,21 +59,14 @@ async function getRequestByCategory(CategoryName) {
     try {
         const response = await fetch(url, options);
         const result = await response.json();
-        console.log('HHHHHHHHH');
+        // console.log(result);
         storeData(result);
 
+        spinner.style.display = "none";
     } catch (error) {
         console.error(error);
     }
 }
-
-
-function displayGames(games) {
-    games.forEach(element => {
-
-    });
-}
-
 
 class Games {
     games = [];
@@ -49,7 +88,6 @@ class Games {
 }
 
 function storeData(games) {
-    console.log('HEYYYYYYYY');
     let gamesArray = [];
     games.forEach(element => {
         let game = new Games(element.id, element.title, element.thumbnail, element.short_description,
@@ -64,10 +102,9 @@ function storeData(games) {
 function displayData(gamesArray) {
     let htmlCode = ``;
     gamesArray.forEach(element => {
-        console.log(element);
         htmlCode += `
         <div class="col-md-3 align-items-stretch d-flex ">
-            <div class="card" style="width: 17rem; margin-top: 70px; background-color: #212529; color:#f1f1f1"> 
+            <div class="card" id=${element.id} style="width: 17rem; margin-top: 70px; background-color: #212529; color:#f1f1f1"> 
                 <img src="${element.thumbnail}" alt="Avatar" class="mx-auto my-3" style="width:90%; ">
                 <div class="container">
                     <div class="row">
@@ -100,49 +137,91 @@ function displayData(gamesArray) {
 
     document.getElementById("games").innerHTML = htmlCode;
 
-    
-document.querySelectorAll('.card').forEach(card=>{
-    console.log('clicked');
-    card.addEventListener('mouseover',function(){
-        console.log('clicked');
-        setTimeout(() => { window.location.href = "details.html"; }, 500);
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', function () {
+            localStorage.setItem("CurrentCardID", card.id);
+            let spinner = document.getElementById("spinner");
+            spinner.style.display = "flex";
+            setTimeout(() => {
+                document.addEventListener('DOMContentLoaded', function () {
+                    spinner.style.display = "none";
+                });
+                window.location.href = "details.html";
+            }, 500);
+        });
     });
-});
 }
 
-let mmorpg = document.getElementById("mmorpg");
-let shooter = document.getElementById("shooter");
-let sailing = document.getElementById("sailing");
-let permadeath = document.getElementById("permadeath");
-let superhero = document.getElementById("superhero");
-let pixel = document.getElementById("pixel");
 
-mmorpg.addEventListener("click", function (e) {
-    console.log(e);
-    getRequestByCategory("mmorpg");
+document.addEventListener('DOMContentLoaded', function () {
+    let mmorpg = document.getElementById("mmorpg");
+    if (mmorpg) {
+        mmorpg.addEventListener('click', function () {
+            CurrentGenre = "mmorpg";
+            localStorage.setItem("CurrentCategory", "mmorpg");
+            getRequestByCategory("mmorpg");
+        });
+    }
 });
 
-shooter.addEventListener("click", function () {
-    getRequestByCategory("shooter");
+document.addEventListener('DOMContentLoaded', function () {
+    let shooter = document.getElementById("shooter");
+    if (shooter) {
+        shooter.addEventListener("click", function () {
+            CurrentGenre = "shooter";
+            localStorage.setItem("CurrentCategory", "shooter");
+            getRequestByCategory("shooter");
+        });
+    }
 });
 
-sailing.addEventListener("click", function () {
-    getRequestByCategory("sailing");
+document.addEventListener('DOMContentLoaded', function () {
+    let sailing = document.getElementById("sailing");
+    if (sailing) {
+        sailing.addEventListener("click", function () {
+            CurrentGenre = "sailing";
+            localStorage.setItem("CurrentCategory", "sailing");
+            getRequestByCategory("sailing");
+        });
+    }
 });
 
-permadeath.addEventListener("click", function () {
-    getRequestByCategory("permadeath");
+document.addEventListener('DOMContentLoaded', function () {
+    let permadeath = document.getElementById("permadeath");
+    if (permadeath) {
+        permadeath.addEventListener("click", function () {
+            CurrentGenre = "permadeath";
+            localStorage.setItem("CurrentCategory", "permadeath");
+            getRequestByCategory("permadeath");
+        });
+    }
 });
 
-superhero.addEventListener("click", function () {
-    getRequestByCategory("superhero");
+document.addEventListener('DOMContentLoaded', function () {
+    let superhero = document.getElementById("superhero");
+    if (superhero) {
+        superhero.addEventListener("click", function () {
+            CurrentGenre = "superhero";
+            localStorage.setItem("CurrentCategory", "superhero");
+            getRequestByCategory("superhero");
+        });
+    }
 });
 
-pixel.addEventListener("click", function () {
-    getRequestByCategory("pixel");
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    let pixel = document.getElementById("pixel");
+    if (pixel) {
+        pixel.addEventListener("click", function () {
+            CurrentGenre = "pixel";
+            localStorage.setItem("CurrentCategory", "pixel");
+            getRequestByCategory("pixel");
+        });
+
+
+    }
 });
-
-
 
 document.querySelectorAll('.nav-link').forEach //loop through all the nav links
     (link => {
