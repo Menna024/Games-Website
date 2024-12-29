@@ -1,6 +1,13 @@
 let CurrentCardID;
 var CurrentGenre = '';
 
+
+document.addEventListener('DOMContentLoaded', function () {
+    let spinner = document.getElementById("spinner");
+    spinner.style.display = "none";
+});
+
+
 let CurrentCategory = localStorage.getItem("CurrentCategory");
 if (CurrentCategory == 'mmorpg') {
     document.addEventListener('DOMContentLoaded', function () {
@@ -46,7 +53,7 @@ async function getRequestByCategory(CategoryName) {
 
     let spinner = document.getElementById("spinner");
     spinner.style.display = "flex";
-    
+
     const url = `https://free-to-play-games-database.p.rapidapi.com/api/games?category=${CategoryName}`;
     const options = {
         method: 'GET',
